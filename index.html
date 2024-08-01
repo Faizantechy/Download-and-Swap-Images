@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicessssssss</title>
+
+    <style>
+
+      body{
+
+        text-align: center;
+      }
+
+      img{
+
+        width: 200px;
+      }
+
+
+      #DownloadBTN{
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: 800;
+        background-color: rgb(187, 0, 255);
+        color: white;
+        cursor: pointer;
+
+      }
+
+      button{
+
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: 800;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+        
+      }
+
+      
+      #DownloadBTN:hover{
+        background-color: rgb(81, 17, 105);
+
+
+      }
+
+
+      button:hover{
+        background-color: rgb(15, 15, 80);
+
+
+      }
+
+
+      #Loading{
+
+        width: 300px;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: relative;
+        left: 32rem;
+        top: 2rem;
+        height: 5px;
+        border: 1px solid black;
+      }
+
+      #progress{
+        width: 0%;
+        height: 100%;
+        background-color: green;
+        border-radius:10px ;
+      }
+
+      h3{
+
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="Container">
+
+
+
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8UG9ydHJhaXR8ZW58MHx8MHx8fDA%3D" alt="" id="Img1">
+   <img src="https://images.unsplash.com/photo-1515138692129-197a2c608cfd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFBvcnRyYWl0fGVufDB8fDB8fHww" alt="" id="Img2">
+   <br><br>
+      <button id="Btn">Swap Images</button> <br> <br>
+      <button id="DownloadBTN">Download The Image</button>
+
+      <h3 id="h3"></h3>
+
+
+      <div id="Loading">
+
+        <div id="progress">
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <script>
+
+const Img1=document.getElementById('Img1')
+const Img2=document.getElementById('Img2')
+const Btn=document.getElementById('Btn')
+
+
+ImgSrc1=Img1.src;
+ImgSrc2=Img2.src;
+
+
+
+Btn.onclick = function() {
+  const tempSrc = Img1.src;
+  Img1.src = Img2.src;
+  Img2.src = tempSrc;
+};
+
+
+const DownloadBtn=document.getElementById('DownloadBTN')
+const progress=document.getElementById('progress')
+const h3=document.getElementById('h3')
+
+
+let count=0;
+
+DownloadBtn.addEventListener('click', function(){
+
+ let int= setInterval(function(){
+
+    count++;
+
+    progress.style.width= count+'%'
+
+    if(count==100){
+
+      clearInterval(int);
+
+      h3.textContent='Download Is Completed'
+
+    }
+
+
+  },100)
+
+})
+
+//Downloading Images:
+
+
+
+
+
+// let arr=[1,2,3,4,5,6,7,8,9,10]
+
+
+// arr.forEach(function(val){
+
+//     console.log(val+' '+val*val);
+
+// })
+
+      //Q1)
+
+    //   function CountVowels(string) {
+    //     let count = 0;
+
+    //     for (let char of string) {
+    //       if (
+    //         char === "a" ||
+    //         char === "e" ||
+    //         char === "i" ||
+    //         char === "o" ||
+    //         char === "u" ||
+    //         char === "A" ||
+    //         char === "E" ||
+    //         char === "I" ||
+    //         char === "O" ||
+    //         char === "U"
+    //       ) {
+    //         count++;
+    //       }
+    //     }
+
+    //     console.log(string + "Count is " + count);
+    //   }
+
+    //   CountVowels("TahaAli");
+
+      // function sum(x,y){
+
+      //     console.log(x+y);
+      // }
+
+      // sum(20,20)
+
+      // function message(msg){
+
+      //     console.log(msg);
+
+      // }
+
+      // message('Hey There. Its just a function');
+
+      // let sum=(a,b) =>{
+
+      //     console.log(a+b);
+
+      // }
+
+      // sum();
+      // console.log('Hey1'); /// This code is Syncrhonus:
+      // console.loge('Hey2');
+      // console.log('Hey3');
+
+      // console.log('Hey1'); /// This code is Syncrhonus:
+
+      // setTimeout(function(){ /// This line is Asynchronus:
+      //     console.loge('Hey2');
+
+      // },5000)
+
+      // console.log('Hey3');
+
+      // let complete=false;
+
+      // let prom= new Promise(function(resolve,reject){
+
+      //     if(complete){
+
+      //        resolve('The promise Got Fulfilled')
+      //     } else{
+
+      //         reject('The promise Got Failed!!')
+
+      //     }
+
+      // })
+
+      // console.log(prom);
+
+      // let name='Faizan E Armaan';
+      // console.log(name);
+
+      //Return Keyword IN JS: It's used to accept the values in the fucntion's arguemtns.
+
+      //     function add(a,b,c){
+
+      //         return a+b*c;
+
+      //     }
+
+      //    let answer= add(20,30,2)
+      //    console.log(answer)
+
+      // function add(num1,num2){
+
+      //     let result=a*b;
+      //     return result;
+      // }
+
+      // let answer=add(20,10);
+      // console.log(answer);
+
+      //Local Scope and Global Scope:
+
+      // var name='Faizan'; // This varialbe is declared outside any scope. That's why, it's it's global scope and you can acess it from anywhere in the docuemnt.
+
+      // //Local Scope:
+
+      // function add(){ /// Here, sum is in the local scope as it's encolsed in the parenthises of a function. You can't access it outside the fucntion.
+
+      //     let sum='Faizan';
+      // }
+
+      // console.log(name);
+
+      //Synchronus vss Asynchronus:
+
+      //THis is Asynchornus:
+
+      // console.log('1')
+
+      // setTimeout (function(){
+
+      //     console.log('2')
+
+      // },5000)
+
+      // console.log('3')
+    </script>
+  </body>
+</html>
